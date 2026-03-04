@@ -1,11 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import PrayerBanner from "@/components/home/PrayerBanner";
+import FeatureGrid from "@/components/home/FeatureGrid";
+import { motion } from "framer-motion";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen pb-20 bg-background">
+      <div className="max-w-lg mx-auto px-4 pt-6 space-y-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex items-center justify-between"
+        >
+          <div>
+            <h1 className="text-xl font-bold text-foreground">
+              بِسْمِ ٱللَّٰهِ
+            </h1>
+            <p className="text-sm text-muted-foreground">Assalamu Alaikum</p>
+          </div>
+          <div className="w-10 h-10 rounded-full islamic-gradient flex items-center justify-center text-primary-foreground text-lg font-arabic">
+            ☪
+          </div>
+        </motion.div>
+
+        {/* Prayer Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <PrayerBanner />
+        </motion.div>
+
+        {/* Features */}
+        <div>
+          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+            Features
+          </h2>
+          <FeatureGrid />
+        </div>
       </div>
     </div>
   );

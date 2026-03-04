@@ -3,7 +3,16 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BottomNav from "@/components/layout/BottomNav";
 import Index from "./pages/Index";
+import PrayerTimes from "./pages/PrayerTimes";
+import Quran from "./pages/Quran";
+import Qibla from "./pages/Qibla";
+import Dhikr from "./pages/Dhikr";
+import Duas from "./pages/Duas";
+import Names from "./pages/Names";
+import IslamicCalendar from "./pages/IslamicCalendar";
+import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,9 +25,17 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/prayer-times" element={<PrayerTimes />} />
+          <Route path="/quran" element={<Quran />} />
+          <Route path="/qibla" element={<Qibla />} />
+          <Route path="/dhikr" element={<Dhikr />} />
+          <Route path="/duas" element={<Duas />} />
+          <Route path="/names" element={<Names />} />
+          <Route path="/calendar" element={<IslamicCalendar />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <BottomNav />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
