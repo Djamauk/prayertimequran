@@ -1,42 +1,28 @@
 import PrayerBanner from "@/components/home/PrayerBanner";
 import FeatureGrid from "@/components/home/FeatureGrid";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Index = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen pb-20 bg-background">
       <div className="max-w-lg mx-auto px-4 pt-6 space-y-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between"
-        >
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-foreground">
-              بِسْمِ ٱللَّٰهِ
-            </h1>
-            <p className="text-sm text-muted-foreground">Assalamu Alaikum</p>
+            <h1 className="text-xl font-bold text-foreground">{t("bismillah")}</h1>
+            <p className="text-sm text-muted-foreground">{t("greeting")}</p>
           </div>
-          <div className="w-10 h-10 rounded-full islamic-gradient flex items-center justify-center text-primary-foreground text-lg font-arabic">
-            ☪
-          </div>
+          <div className="w-10 h-10 rounded-full islamic-gradient flex items-center justify-center text-primary-foreground text-lg font-arabic">☪</div>
         </motion.div>
 
-        {/* Prayer Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
           <PrayerBanner />
         </motion.div>
 
-        {/* Features */}
         <div>
-          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-            Features
-          </h2>
+          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t("features")}</h2>
           <FeatureGrid />
         </div>
       </div>

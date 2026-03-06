@@ -1,0 +1,82 @@
+const am = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "አሰላሙ ዓለይኩም",
+  features: "ባህሪያት",
+
+  home: "መነሻ",
+  prayer: "ሶላት",
+  quran: "ቁርአን",
+  qibla: "ቂብላ",
+  settings: "ቅንብሮች",
+
+  prayerTimes: "የሶላት ሰዓታት",
+  dhikr: "ዚክሪ",
+  duas: "ዱዓ",
+  names99: "99 ስሞች",
+  calendar: "ቀን መቁጠሪያ",
+
+  yourLocation: "የእርስዎ ቦታ",
+  nextPrayer: "ቀጣይ ሶላት",
+  timeRemaining: "የቀረ ጊዜ",
+  tomorrow: "ነገ",
+
+  fajr: "ፈጅር",
+  sunrise: "ፀሐይ መውጣት",
+  dhuhr: "ዙሁር",
+  asr: "ዐስር",
+  maghrib: "መግሪብ",
+  isha: "ዒሻ",
+  loadingLocation: "ቦታ በመፈለግ ላይ...",
+  locationError: "ቦታ ማግኘት አልተቻለም",
+  enableLocation: "ትክክለኛ የሶላት ሰዓት ለማግኘት የቦታ አገልግሎትን ያብሩ",
+
+  alQuran: "ቁርአን ከሪም",
+  meccan: "መካዊ",
+  medinan: "መዲናዊ",
+  verses: "አያቶች",
+
+  qiblaCompass: "የቂብላ ኮምፓስ",
+  qiblaDirection: "የቂብላ አቅጣጫ",
+  distanceToKaaba: "ወደ ካዕባ ርቀት",
+  enableLocationQibla: "ትክክለኛ አቅጣጫ ለማግኘት የቦታ አገልግሎትን ያብሩ",
+
+  dhikrCounter: "ዚክሪ ቆጣሪ",
+  total: "ጠቅላላ",
+  gloryToAllah: "ሱብሐናላህ",
+  praiseToAllah: "አልሐምዱ ሊላህ",
+  allahIsGreatest: "አላሁ አክበር",
+  noGodButAllah: "ላ ኢላሃ ኢለላህ",
+
+  hisnulMuslim: "ሒስኑል ሙስሊም",
+  dailyDuas: "ዕለታዊ ዱዓዎች እና ምልጃዎች",
+  morningEvening: "ጧት & ማታ",
+  beforeAfterPrayer: "ከሶላት በፊት & በኋላ",
+  homeFamily: "ቤት & ቤተሰብ",
+  travel: "ጉዞ",
+  foodDrink: "ምግብ & መጠጥ",
+  hajjUmrah: "ሐጅ & ኡምራ",
+  sicknessHealing: "ህመም & ፈውስ",
+  goodEtiquette: "ጥሩ ስነ-ምግባር",
+  natureWeather: "ተፈጥሮ & የአየር ሁኔታ",
+  seekingForgiveness: "ምህረት መጠየቅ",
+
+  namesOfAllah: "99 የአላህ ስሞች",
+
+  islamicCalendar: "እስላማዊ ቀን መቁጠሪያ",
+  importantDates: "ጠቃሚ ቀናት",
+
+  general: "አጠቃላይ",
+  language: "ቋንቋ",
+  theme: "ገጽታ",
+  light: "ብርሃን",
+  dark: "ጨለማ",
+  prayerSettings: "ሶላት",
+  location: "ቦታ",
+  autoDetect: "ራስ-ማወቂያ",
+  calculationMethod: "የስሌት ዘዴ",
+  azanNotifications: "የአዛን ማሳወቂያዎች",
+  on: "በርቷል",
+  off: "ጠፍቷል",
+};
+
+export default am;

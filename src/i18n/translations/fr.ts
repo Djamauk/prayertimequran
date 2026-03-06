@@ -1,0 +1,82 @@
+const fr = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "Assalamou Alaikoum",
+  features: "Fonctionnalités",
+
+  home: "Accueil",
+  prayer: "Prière",
+  quran: "Coran",
+  qibla: "Qibla",
+  settings: "Paramètres",
+
+  prayerTimes: "Horaires de Prière",
+  dhikr: "Dhikr",
+  duas: "Duas",
+  names99: "99 Noms",
+  calendar: "Calendrier",
+
+  yourLocation: "Votre position",
+  nextPrayer: "Prochaine Prière",
+  timeRemaining: "Temps restant",
+  tomorrow: "Demain",
+
+  fajr: "Fajr",
+  sunrise: "Lever du soleil",
+  dhuhr: "Dhuhr",
+  asr: "Asr",
+  maghrib: "Maghrib",
+  isha: "Isha",
+  loadingLocation: "Détection de la position...",
+  locationError: "Impossible de détecter la position",
+  enableLocation: "Activez les services de localisation pour des horaires précis",
+
+  alQuran: "Le Coran",
+  meccan: "Mecquoise",
+  medinan: "Médinoise",
+  verses: "versets",
+
+  qiblaCompass: "Boussole Qibla",
+  qiblaDirection: "Direction de la Qibla",
+  distanceToKaaba: "Distance à la Kaaba",
+  enableLocationQibla: "Activez la localisation pour une direction précise",
+
+  dhikrCounter: "Compteur de Dhikr",
+  total: "Total",
+  gloryToAllah: "Gloire à Allah",
+  praiseToAllah: "Louange à Allah",
+  allahIsGreatest: "Allah est le Plus Grand",
+  noGodButAllah: "Il n'y a de dieu qu'Allah",
+
+  hisnulMuslim: "Hisnul Muslim",
+  dailyDuas: "Duas et Invocations Quotidiennes",
+  morningEvening: "Matin & Soir",
+  beforeAfterPrayer: "Avant & Après la Prière",
+  homeFamily: "Maison & Famille",
+  travel: "Voyage",
+  foodDrink: "Nourriture & Boisson",
+  hajjUmrah: "Hajj & Omra",
+  sicknessHealing: "Maladie & Guérison",
+  goodEtiquette: "Bonnes Manières",
+  natureWeather: "Nature & Météo",
+  seekingForgiveness: "Demander Pardon",
+
+  namesOfAllah: "99 Noms d'Allah",
+
+  islamicCalendar: "Calendrier Islamique",
+  importantDates: "Dates Importantes",
+
+  general: "Général",
+  language: "Langue",
+  theme: "Thème",
+  light: "Clair",
+  dark: "Sombre",
+  prayerSettings: "Prière",
+  location: "Position",
+  autoDetect: "Auto-détection",
+  calculationMethod: "Méthode de Calcul",
+  azanNotifications: "Notifications d'Adhan",
+  on: "Activé",
+  off: "Désactivé",
+};
+
+export default fr;

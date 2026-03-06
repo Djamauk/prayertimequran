@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const names = [
   { number: 1, arabic: "ٱلرَّحْمَٰنُ", transliteration: "Ar-Rahman", meaning: "The Most Gracious" },
@@ -19,20 +20,17 @@ const names = [
 
 const Names = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-8 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-3 text-primary-foreground">
-            <button onClick={() => navigate("/")} className="p-1">
-              <ArrowLeft className="h-5 w-5" />
-            </button>
-            <h1 className="text-lg font-bold flex-1">99 Names of Allah</h1>
+            <button onClick={() => navigate("/")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
+            <h1 className="text-lg font-bold flex-1">{t("namesOfAllah")}</h1>
           </div>
-          <p className="text-primary-foreground font-arabic text-center text-xl mt-2">
-            أَسْمَاءُ ٱللَّٰهِ ٱلْحُسْنَىٰ
-          </p>
+          <p className="text-primary-foreground font-arabic text-center text-xl mt-2">أَسْمَاءُ ٱللَّٰهِ ٱلْحُسْنَىٰ</p>
         </div>
       </div>
 

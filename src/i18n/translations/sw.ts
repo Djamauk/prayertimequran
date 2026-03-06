@@ -1,0 +1,82 @@
+const sw = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "Assalamu Alaikum",
+  features: "Huduma",
+
+  home: "Nyumbani",
+  prayer: "Swala",
+  quran: "Qurani",
+  qibla: "Qibla",
+  settings: "Mipangilio",
+
+  prayerTimes: "Nyakati za Swala",
+  dhikr: "Dhikri",
+  duas: "Dua",
+  names99: "Majina 99",
+  calendar: "Kalenda",
+
+  yourLocation: "Mahali pako",
+  nextPrayer: "Swala Ijayo",
+  timeRemaining: "Muda uliobaki",
+  tomorrow: "Kesho",
+
+  fajr: "Alfajiri",
+  sunrise: "Jua kuchomoza",
+  dhuhr: "Adhuhuri",
+  asr: "Alasiri",
+  maghrib: "Magharibi",
+  isha: "Ishaa",
+  loadingLocation: "Kutafuta mahali...",
+  locationError: "Haikuwezekana kutafuta mahali",
+  enableLocation: "Washa huduma ya mahali kwa nyakati sahihi",
+
+  alQuran: "Qurani Tukufu",
+  meccan: "Kimakka",
+  medinan: "Kimadina",
+  verses: "aya",
+
+  qiblaCompass: "Dira ya Qibla",
+  qiblaDirection: "Mwelekeo wa Qibla",
+  distanceToKaaba: "Umbali hadi Kaaba",
+  enableLocationQibla: "Washa huduma ya mahali kwa mwelekeo sahihi",
+
+  dhikrCounter: "Kihesabu cha Dhikri",
+  total: "Jumla",
+  gloryToAllah: "Utukufu ni wa Allah",
+  praiseToAllah: "Sifa zote ni za Allah",
+  allahIsGreatest: "Allah ni Mkubwa",
+  noGodButAllah: "Hapana Mungu ila Allah",
+
+  hisnulMuslim: "Hisnul Muslim",
+  dailyDuas: "Dua na Maombi ya Kila Siku",
+  morningEvening: "Asubuhi & Jioni",
+  beforeAfterPrayer: "Kabla & Baada ya Swala",
+  homeFamily: "Nyumba & Familia",
+  travel: "Safari",
+  foodDrink: "Chakula & Kinywaji",
+  hajjUmrah: "Hiji & Umra",
+  sicknessHealing: "Ugonjwa & Uponyaji",
+  goodEtiquette: "Adabu Njema",
+  natureWeather: "Asili & Hali ya Hewa",
+  seekingForgiveness: "Kuomba Msamaha",
+
+  namesOfAllah: "Majina 99 ya Allah",
+
+  islamicCalendar: "Kalenda ya Kiislamu",
+  importantDates: "Tarehe Muhimu",
+
+  general: "Jumla",
+  language: "Lugha",
+  theme: "Mandhari",
+  light: "Nuru",
+  dark: "Giza",
+  prayerSettings: "Swala",
+  location: "Mahali",
+  autoDetect: "Otomatiki",
+  calculationMethod: "Njia ya Hesabu",
+  azanNotifications: "Arifa za Adhana",
+  on: "Washa",
+  off: "Zima",
+};
+
+export default sw;

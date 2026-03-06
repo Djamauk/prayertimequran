@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const importantDates = [
   { name: "Ramadan Begins", hijri: "1 Ramadan 1447", gregorian: "Mar 1, 2026", emoji: "🌙" },
@@ -14,24 +15,21 @@ const importantDates = [
 
 const IslamicCalendar = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-8 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-3 text-primary-foreground">
-            <button onClick={() => navigate("/")} className="p-1">
-              <ArrowLeft className="h-5 w-5" />
-            </button>
-            <h1 className="text-lg font-bold flex-1">Islamic Calendar</h1>
+            <button onClick={() => navigate("/")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
+            <h1 className="text-lg font-bold flex-1">{t("islamicCalendar")}</h1>
           </div>
         </div>
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-4">
-        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-          Important Dates
-        </h2>
+        <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t("importantDates")}</h2>
         <div className="space-y-2">
           {importantDates.map((date, i) => (
             <motion.div

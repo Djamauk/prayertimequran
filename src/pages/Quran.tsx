@@ -1,6 +1,7 @@
 import { ArrowLeft, Search, Bookmark } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const surahs = [
   { number: 1, name: "Al-Fatihah", arabic: "الفاتحة", verses: 7, type: "Meccan" },
@@ -23,22 +24,19 @@ const surahs = [
 
 const Quran = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-8 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-3 text-primary-foreground mb-4">
-            <button onClick={() => navigate("/")} className="p-1">
-              <ArrowLeft className="h-5 w-5" />
-            </button>
-            <h1 className="text-lg font-bold flex-1">Al-Quran</h1>
+            <button onClick={() => navigate("/")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
+            <h1 className="text-lg font-bold flex-1">{t("alQuran")}</h1>
             <Search className="h-5 w-5 opacity-80" />
             <Bookmark className="h-5 w-5 opacity-80" />
           </div>
-          <p className="text-primary-foreground/80 text-sm font-arabic text-center text-xl">
-            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-          </p>
+          <p className="text-primary-foreground/80 text-sm font-arabic text-center text-xl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
         </div>
       </div>
 
@@ -51,12 +49,10 @@ const Quran = () => {
             transition={{ delay: i * 0.03 }}
             className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md transition-shadow cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-lg islamic-gradient flex items-center justify-center text-primary-foreground text-sm font-bold">
-              {surah.number}
-            </div>
+            <div className="w-10 h-10 rounded-lg islamic-gradient flex items-center justify-center text-primary-foreground text-sm font-bold">{surah.number}</div>
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-foreground">{surah.name}</p>
-              <p className="text-xs text-muted-foreground">{surah.type} • {surah.verses} verses</p>
+              <p className="text-xs text-muted-foreground">{surah.type === "Meccan" ? t("meccan") : t("medinan")} • {surah.verses} {t("verses")}</p>
             </div>
             <p className="text-xl font-arabic text-primary">{surah.arabic}</p>
           </motion.div>
