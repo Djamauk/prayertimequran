@@ -18,30 +18,32 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/prayer-times" element={<PrayerTimes />} />
-            <Route path="/quran" element={<Quran />} />
-            <Route path="/qibla" element={<Qibla />} />
-            <Route path="/dhikr" element={<Dhikr />} />
-            <Route path="/duas" element={<Duas />} />
-            <Route path="/names" element={<Names />} />
-            <Route path="/calendar" element={<IslamicCalendar />} />
-            <Route path="/settings" element={<SettingsPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <BottomNav />
-        </BrowserRouter>
-      </TooltipProvider>
-    </LanguageProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/prayer-times" element={<PrayerTimes />} />
+              <Route path="/quran" element={<Quran />} />
+              <Route path="/qibla" element={<Qibla />} />
+              <Route path="/dhikr" element={<Dhikr />} />
+              <Route path="/duas" element={<Duas />} />
+              <Route path="/names" element={<Names />} />
+              <Route path="/calendar" element={<IslamicCalendar />} />
+              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <BottomNav />
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
