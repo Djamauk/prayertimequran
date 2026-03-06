@@ -1,81 +1,55 @@
-## Islamic All-in-One App
+## Current State Assessment
 
-A beautiful, multilingual Islamic companion app with a teal/green theme inspired by the top-rated apps on Google Play.
+The app has a solid UI foundation with all pages created, but everything uses **hardcoded static data** and is **English-only**. Here's what's missing vs. the plan:
 
-### Supported Languages
+### What's Built (UI shells only)
 
-English, Arabic, Somali, French, Swahili, Afar, Oromo, Amharic — with a language switcher accessible from settings.
+- Home dashboard with prayer banner and feature grid
+- Prayer Times page (static times)
+- Quran page (16 of 114 surahs listed, no reader/audio)
+- Qibla compass (static 45° direction)
+- Dhikr counter (functional tap counter)
+- Duas page (category list only, no actual duas)
+- 99 Names page (12 of 99 names, no audio)
+- Islamic Calendar (list of dates, no real calendar)
+- Settings page (non-functional)
 
-### Design
+### What Needs to Be Built
 
-- Teal/green gradient theme with Islamic geometric patterns and subtle crescent/star motifs
-- Card-based home screen with icons for each feature (like the screenshots)
-- Smooth animations, rounded cards, and elegant Arabic typography
-- Mobile-first responsive design
+Given the scope, I recommend building incrementally in this order:
 
-### Pages & Features
+**Phase 1 — Core Data & Multilingual Foundation**
 
-**1. Home Dashboard**
+- Create an i18n system (context + JSON translation files) for all 8 languages
+- Wire up the Settings language selector to actually switch languages
+- Add a dark mode toggle that works
 
-- Grid of feature cards with icons: Prayer Times, Quran, Qibla, Dhikr, Duas, 99 Names, Calendar
-- Current prayer time banner at the top with countdown to next prayer
-- Hijri date display
+**Phase 2 — Prayer Times (Real)**
 
-**2. Prayer Times**
+- Integrate the free Aladhan API (`api.aladhan.com`) for location-based prayer times
+- Use browser geolocation for auto-detection
+- Update PrayerBanner with live countdown
 
-- Location-based daily schedule (Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha)
-- Countdown timer to next prayer
-- Azan notification settings with multiple muezzin voice options
-- Monthly prayer timetable view
+**Phase 3 — Full Quran Reader**
 
-**3. Quran Reader + Audio**
+- Integrate Al-Quran Cloud API (`api.alquran.cloud`) for all 114 surahs with Arabic text: use Supabase.
+- Add surah detail page with ayah-by-ayah view
+- Add audio recitation (Abdur Rashid Sufi + others via the same API)
+- Bookmarks using localStorage
 
-- Full Quran text in Arabic with surah/juz navigation
-- Side-by-side translations (all 8 languages)
-- Audio recitation with multiple reciters, including Abdur Rashid Sufi (play/pause per ayah or continuous)
-- Bookmarks, search, and last-read position tracking
-- Beautiful Arabic calligraphy rendering
+**Phase 4 — Complete Remaining Features**
 
-**4. Qibla Compass**
+- Qibla: Use geolocation to calculate the real bearing to the Kaaba
+- 99 Names: Add all 99 names with meanings
+- Duas: Add actual dua content (Arabic + transliteration + translation) per category
+- Calendar: Add a proper Hijri calendar grid with a date converter
 
-- Compass pointing toward Mecca based on device location
-- Distance to Kaaba display
-- AR camera mode overlay showing Qibla direction on the live camera view
+**Phase 5 — Polish**
 
-**5. Dhikr Counter (Tasbih)**
+- AR Qibla camera overlay (using device camera + compass)
+- Azan notification scheduling
+- Search across the Quran and duas
 
-- Digital bead counter with tap-to-count
-- Preset dhikr texts (SubhanAllah, Alhamdulillah, Allahu Akbar, etc.)
-- Progress tracking (e.g., 2/33, Total: 77)
-- Reset and history
+### Recommendation
 
-**6. Hisnul Muslim (Duas)**
-
-- Categorised duas: Morning & Evening, Home & Family, Travel, Food & Drink, Prayer, Hajj & Umrah, Nature, Good Etiquette, Sickness & Death, etc.
-- Arabic text + transliteration + translation in selected language
-- Audio playback for each dua
-
-**7. 99 Names of Allah**
-
-- Scrollable list of all 99 names in Arabic calligraphy
-- Transliteration, meaning, and benefit/description for each name
-- Audio pronunciation
-
-**8. Islamic Calendar**
-
-- Hijri calendar with important dates highlighted (Ramadan, Eid, etc.)
-- Gregorian ↔ Hijri date converter
-
-**9. Settings**
-
-- Language selector (8 languages)
-- Prayer calculation method (Hanafi, Shafi, etc.)
-- Azan sound selection
-- Dark/light theme toggle
-- Location settings (auto-detect or manual)
-
-### Backend Needs
-
-- Supabase for storing Quran data, duas, prayer calculation, and user preferences
-- Edge functions for prayer time calculation API and location services
-- Audio file hosting for Quran recitation, azan sounds, and dua audio
+I suggest starting with **Phase 1 (multilingual + settings)** and **Phase 2 (real prayer times)** together since they're foundational. Shall I proceed with these two phases first?
