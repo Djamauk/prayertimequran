@@ -1,0 +1,82 @@
+const aa = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "Assalaamu Calaykum",
+  features: "Meqe",
+
+  home: "Magaala",
+  prayer: "Salaat",
+  quran: "Quraan",
+  qibla: "Qibla",
+  settings: "Digsite",
+
+  prayerTimes: "Salaat Wakti",
+  dhikr: "Dikri",
+  duas: "Ducaa",
+  names99: "99 Maqo",
+  calendar: "Taarikhi",
+
+  yourLocation: "Kee gooba",
+  nextPrayer: "Salatil Qaadima",
+  timeRemaining: "Wakti haray",
+  tomorrow: "Bari",
+
+  fajr: "Fajri",
+  sunrise: "Caddi-baxe",
+  dhuhr: "Duhuri",
+  asr: "Casri",
+  maghrib: "Maqribi",
+  isha: "Cishaai",
+  loadingLocation: "Gooba raadiye...",
+  locationError: "Gooba la arkin",
+  enableLocation: "Gooba adeega fur salaat wakti saxda ah",
+
+  alQuran: "Quraanka",
+  meccan: "Makki",
+  medinan: "Madani",
+  verses: "aayat",
+
+  qiblaCompass: "Qibla Kompas",
+  qiblaDirection: "Qibla Cirib",
+  distanceToKaaba: "Kacba fog",
+  enableLocationQibla: "Gooba adeega fur cirib saxda ah",
+
+  dhikrCounter: "Dikri Tirin",
+  total: "Migdi",
+  gloryToAllah: "Subxaana Allaah",
+  praiseToAllah: "Alxamdulillaah",
+  allahIsGreatest: "Allaahu Akbar",
+  noGodButAllah: "Laa ilaaha illallaah",
+
+  hisnulMuslim: "Xisnil Muslim",
+  dailyDuas: "Ducooyin Maalinle",
+  morningEvening: "Subax & Galabta",
+  beforeAfterPrayer: "Salaat Horta & Dabadeed",
+  homeFamily: "Min & Reer",
+  travel: "Safar",
+  foodDrink: "Cunto & Biyo",
+  hajjUmrah: "Xajji & Cumra",
+  sicknessHealing: "Buko & Caafimaad",
+  goodEtiquette: "Anshaxa Wanaagsan",
+  natureWeather: "Dabiici & Cimilo",
+  seekingForgiveness: "Istiiqfaar",
+
+  namesOfAllah: "99 Maqaallah",
+
+  islamicCalendar: "Taariikhda Islaamiga",
+  importantDates: "Taariikhaha Muhiimka",
+
+  general: "Guud",
+  language: "Af",
+  theme: "Muuqaal",
+  light: "Cad",
+  dark: "Madow",
+  prayerSettings: "Salaat",
+  location: "Gooba",
+  autoDetect: "Iskii-ogaan",
+  calculationMethod: "Xisaab Habka",
+  azanNotifications: "Aadaan Ogeysiis",
+  on: "Furan",
+  off: "Xidhan",
+};
+
+export default aa;

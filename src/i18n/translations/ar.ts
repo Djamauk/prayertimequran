@@ -1,0 +1,82 @@
+const ar = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "السلام عليكم",
+  features: "الميزات",
+
+  home: "الرئيسية",
+  prayer: "الصلاة",
+  quran: "القرآن",
+  qibla: "القبلة",
+  settings: "الإعدادات",
+
+  prayerTimes: "مواقيت الصلاة",
+  dhikr: "الذكر",
+  duas: "الأدعية",
+  names99: "أسماء الله",
+  calendar: "التقويم",
+
+  yourLocation: "موقعك",
+  nextPrayer: "الصلاة القادمة",
+  timeRemaining: "الوقت المتبقي",
+  tomorrow: "غداً",
+
+  fajr: "الفجر",
+  sunrise: "الشروق",
+  dhuhr: "الظهر",
+  asr: "العصر",
+  maghrib: "المغرب",
+  isha: "العشاء",
+  loadingLocation: "جارٍ تحديد الموقع...",
+  locationError: "تعذر تحديد الموقع",
+  enableLocation: "فعّل خدمات الموقع للحصول على أوقات صلاة دقيقة",
+
+  alQuran: "القرآن الكريم",
+  meccan: "مكية",
+  medinan: "مدنية",
+  verses: "آيات",
+
+  qiblaCompass: "بوصلة القبلة",
+  qiblaDirection: "اتجاه القبلة",
+  distanceToKaaba: "المسافة إلى الكعبة",
+  enableLocationQibla: "فعّل خدمات الموقع للحصول على اتجاه دقيق",
+
+  dhikrCounter: "عداد الذكر",
+  total: "المجموع",
+  gloryToAllah: "سبحان الله",
+  praiseToAllah: "الحمد لله",
+  allahIsGreatest: "الله أكبر",
+  noGodButAllah: "لا إله إلا الله",
+
+  hisnulMuslim: "حصن المسلم",
+  dailyDuas: "الأدعية والأذكار اليومية",
+  morningEvening: "أذكار الصباح والمساء",
+  beforeAfterPrayer: "قبل وبعد الصلاة",
+  homeFamily: "البيت والأسرة",
+  travel: "السفر",
+  foodDrink: "الطعام والشراب",
+  hajjUmrah: "الحج والعمرة",
+  sicknessHealing: "المرض والشفاء",
+  goodEtiquette: "الآداب",
+  natureWeather: "الطبيعة والطقس",
+  seekingForgiveness: "الاستغفار",
+
+  namesOfAllah: "أسماء الله الحسنى",
+
+  islamicCalendar: "التقويم الهجري",
+  importantDates: "التواريخ المهمة",
+
+  general: "عام",
+  language: "اللغة",
+  theme: "المظهر",
+  light: "فاتح",
+  dark: "داكن",
+  prayerSettings: "الصلاة",
+  location: "الموقع",
+  autoDetect: "تلقائي",
+  calculationMethod: "طريقة الحساب",
+  azanNotifications: "إشعارات الأذان",
+  on: "مفعّل",
+  off: "معطّل",
+};
+
+export default ar;

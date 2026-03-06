@@ -1,0 +1,82 @@
+const so = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "Assalaamu Calaykum",
+  features: "Adeegyada",
+
+  home: "Guriga",
+  prayer: "Salaadda",
+  quran: "Quraan",
+  qibla: "Qiblada",
+  settings: "Dejinta",
+
+  prayerTimes: "Waqtiyada Salaadda",
+  dhikr: "Xasuusta",
+  duas: "Ducada",
+  names99: "99 Magac",
+  calendar: "Taariikhda",
+
+  yourLocation: "Goobkaaga",
+  nextPrayer: "Salaadda Xigta",
+  timeRemaining: "Waqtiga haray",
+  tomorrow: "Berri",
+
+  fajr: "Subax",
+  sunrise: "Qorrax-soo-bax",
+  dhuhr: "Duhur",
+  asr: "Casar",
+  maghrib: "Maqrib",
+  isha: "Cishaa",
+  loadingLocation: "Goobta la helayo...",
+  locationError: "Goobta lama helin",
+  enableLocation: "Fur adeegga goobta si aad u hesho waqtiyo sax ah",
+
+  alQuran: "Quraanka",
+  meccan: "Makki",
+  medinan: "Madani",
+  verses: "aayado",
+
+  qiblaCompass: "Qiblada Kompas",
+  qiblaDirection: "Jihada Qiblada",
+  distanceToKaaba: "Masaafada Kacbada",
+  enableLocationQibla: "Fur adeegga goobta si aad u hesho jiho sax ah",
+
+  dhikrCounter: "Tirinta Xasuusta",
+  total: "Wadarta",
+  gloryToAllah: "Subxaana Allaah",
+  praiseToAllah: "Alxamdulillaah",
+  allahIsGreatest: "Allaahu Akbar",
+  noGodButAllah: "Laa ilaaha illallaah",
+
+  hisnulMuslim: "Xisnil Muslim",
+  dailyDuas: "Ducooyin & Barako Maalinle ah",
+  morningEvening: "Subax & Fiid",
+  beforeAfterPrayer: "Ka hor & Ka dib Salaadda",
+  homeFamily: "Guriga & Qoyska",
+  travel: "Safar",
+  foodDrink: "Cunto & Cabbitaan",
+  hajjUmrah: "Xajka & Cumrada",
+  sicknessHealing: "Xanuun & Caafimaad",
+  goodEtiquette: "Akhlaaqda Wanaagsan",
+  natureWeather: "Dabeecadda & Cimilada",
+  seekingForgiveness: "Istiiqfaar",
+
+  namesOfAllah: "99 Magaca Allaah",
+
+  islamicCalendar: "Taariikhda Islaamiga",
+  importantDates: "Taariikhaha Muhiimka ah",
+
+  general: "Guud",
+  language: "Luuqadda",
+  theme: "Muuqaalka",
+  light: "Iftiinle",
+  dark: "Madow",
+  prayerSettings: "Salaadda",
+  location: "Goobta",
+  autoDetect: "Is-ogaan",
+  calculationMethod: "Habka Xisaabinta",
+  azanNotifications: "Ogeysiisyada Aadhanka",
+  on: "Furan",
+  off: "Xiran",
+};
+
+export default so;

@@ -1,0 +1,82 @@
+const om = {
+  bismillah: "بِسْمِ ٱللَّٰهِ",
+  greeting: "Assalaamu Aleykum",
+  features: "Tajaajila",
+
+  home: "Mana",
+  prayer: "Salaata",
+  quran: "Quraana",
+  qibla: "Qibla",
+  settings: "Qindaa'ina",
+
+  prayerTimes: "Yeroo Salaataa",
+  dhikr: "Zikrii",
+  duas: "Du'aa",
+  names99: "Maqaa 99",
+  calendar: "Kalendaraa",
+
+  yourLocation: "Bakka kee",
+  nextPrayer: "Salaata Itti Aanu",
+  timeRemaining: "Yeroo hafe",
+  tomorrow: "Boru",
+
+  fajr: "Fajrii",
+  sunrise: "Biiftuu bahuu",
+  dhuhr: "Zuhurii",
+  asr: "Asrii",
+  maghrib: "Magriibii",
+  isha: "Ishaa'ii",
+  loadingLocation: "Bakka barbaadaa jira...",
+  locationError: "Bakka argachuu hin dandeenye",
+  enableLocation: "Tajaajila bakkaa bani yeroo salaataa sirrii argachuuf",
+
+  alQuran: "Quraana Kabajamaa",
+  meccan: "Makkaa",
+  medinan: "Madiinaa",
+  verses: "aayaatota",
+
+  qiblaCompass: "Qibla Kompasii",
+  qiblaDirection: "Kallattii Qiblaa",
+  distanceToKaaba: "Fageenya Ka'abaa",
+  enableLocationQibla: "Tajaajila bakkaa bani kallattii sirrii argachuuf",
+
+  dhikrCounter: "Zikrii Lakkoofsa",
+  total: "Ida'ama",
+  gloryToAllah: "Subhaanallah",
+  praiseToAllah: "Alhamdulillah",
+  allahIsGreatest: "Allaahu Akbar",
+  noGodButAllah: "Laa ilaaha illallaah",
+
+  hisnulMuslim: "Hisnul Muslim",
+  dailyDuas: "Du'aa fi Kadhaa Guyyaa Guyyaan",
+  morningEvening: "Ganama & Galgala",
+  beforeAfterPrayer: "Salaata Dura & Booda",
+  homeFamily: "Mana & Maatii",
+  travel: "Imala",
+  foodDrink: "Nyaata & Dhugaatii",
+  hajjUmrah: "Hajjii & Umraa",
+  sicknessHealing: "Dhukkuba & Fayyaa",
+  goodEtiquette: "Amala Gaarii",
+  natureWeather: "Uumama & Haala Qilleensaa",
+  seekingForgiveness: "Araarama Gaafachuu",
+
+  namesOfAllah: "Maqaalee 99 Rabbii",
+
+  islamicCalendar: "Kalendaraa Islaamaa",
+  importantDates: "Guyyoota Barbaachisoo",
+
+  general: "Waliigala",
+  language: "Afaan",
+  theme: "Bifa",
+  light: "Ifaa",
+  dark: "Dukkana",
+  prayerSettings: "Salaata",
+  location: "Bakka",
+  autoDetect: "Ofumaan-baruu",
+  calculationMethod: "Mala Herregaa",
+  azanNotifications: "Beeksisa Azaanaa",
+  on: "Banaa",
+  off: "Cufaa",
+};
+
+export default om;
