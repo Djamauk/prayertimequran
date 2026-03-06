@@ -1,26 +1,18 @@
-import { ArrowLeft, Globe, Moon, MapPin, Bell, Calculator } from "lucide-react";
+import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const settingsGroups = [
-  {
-    title: "General",
-    items: [
-      { icon: Globe, label: "Language", value: "English" },
-      { icon: Moon, label: "Theme", value: "Light" },
-    ],
-  },
-  {
-    title: "Prayer",
-    items: [
-      { icon: MapPin, label: "Location", value: "Auto-detect" },
-      { icon: Calculator, label: "Calculation Method", value: "MWL" },
-      { icon: Bell, label: "Azan Notifications", value: "On" },
-    ],
-  },
-];
+import { useState } from "react";
+import { useLanguage, LANGUAGES, type LanguageCode } from "@/i18n/LanguageContext";
+import { useTheme } from "@/hooks/useTheme";
+import { Switch } from "@/components/ui/switch";
+import { cn } from "@/lib/utils";
 
 const SettingsPage = () => {
   const navigate = useNavigate();
+  const { t, lang, setLang } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
+  const [showLangPicker, setShowLangPicker] = useState(false);
+
+  const currentLangName = LANGUAGES.find((l) => l.code === lang)?.nativeName || "English";
 
   return (
     <div className="min-h-screen pb-20 bg-background">
@@ -29,30 +21,74 @@ const SettingsPage = () => {
           <button onClick={() => navigate("/")} className="p-1">
             <ArrowLeft className="h-5 w-5" />
           </button>
-          <h1 className="text-lg font-bold">Settings</h1>
+          <h1 className="text-lg font-bold">{t("settings")}</h1>
         </div>
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-4 space-y-6">
-        {settingsGroups.map((group) => (
-          <div key={group.title}>
-            <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-              {group.title}
-            </h2>
-            <div className="bg-card rounded-xl border border-border overflow-hidden">
-              {group.items.map((item, i) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-3 px-4 py-3.5 border-b border-border last:border-0 cursor-pointer hover:bg-muted/50 transition-colors"
-                >
-                  <item.icon className="h-5 w-5 text-primary" />
-                  <span className="flex-1 text-sm font-medium text-foreground">{item.label}</span>
-                  <span className="text-xs text-muted-foreground">{item.value}</span>
-                </div>
-              ))}
+        {/* General */}
+        <div>
+          <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">{t("general")}</h2>
+          <div className="bg-card rounded-xl border border-border overflow-hidden">
+            {/* Language */}
+            <button
+              onClick={() => setShowLangPicker(!showLangPicker)}
+              className="flex items-center gap-3 px-4 py-3.5 border-b border-border w-full hover:bg-muted/50 transition-colors"
+            >
+              <Globe className="h-5 w-5 text-primary" />
+              <span className="flex-1 text-sm font-medium text-foreground text-left">{t("language")}</span>
+              <span className="text-xs text-muted-foreground">{currentLangName}</span>
+              <ChevronRight className={cn("h-4 w-4 text-muted-foreground transition-transform", showLangPicker && "rotate-90")} />
+            </button>
+
+            {showLangPicker && (
+              <div className="border-b border-border bg-muted/30 px-4 py-2 space-y-1">
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setShowLangPicker(false); }}
+                    className={cn(
+                      "w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
+                      lang === l.code ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-foreground"
+                    )}
+                  >
+                    {l.nativeName} <span className="text-xs opacity-60">({l.name})</span>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Theme */}
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border last:border-0">
+              {theme === "dark" ? <Moon className="h-5 w-5 text-primary" /> : <Sun className="h-5 w-5 text-primary" />}
+              <span className="flex-1 text-sm font-medium text-foreground">{t("theme")}</span>
+              <span className="text-xs text-muted-foreground mr-2">{theme === "dark" ? t("dark") : t("light")}</span>
+              <Switch checked={theme === "dark"} onCheckedChange={toggleTheme} />
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Prayer */}
+        <div>
+          <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">{t("prayerSettings")}</h2>
+          <div className="bg-card rounded-xl border border-border overflow-hidden">
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors">
+              <MapPin className="h-5 w-5 text-primary" />
+              <span className="flex-1 text-sm font-medium text-foreground">{t("location")}</span>
+              <span className="text-xs text-muted-foreground">{t("autoDetect")}</span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors">
+              <Calculator className="h-5 w-5 text-primary" />
+              <span className="flex-1 text-sm font-medium text-foreground">{t("calculationMethod")}</span>
+              <span className="text-xs text-muted-foreground">MWL</span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border last:border-0">
+              <Bell className="h-5 w-5 text-primary" />
+              <span className="flex-1 text-sm font-medium text-foreground">{t("azanNotifications")}</span>
+              <span className="text-xs text-muted-foreground">{t("on")}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

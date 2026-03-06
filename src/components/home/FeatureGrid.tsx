@@ -1,27 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Clock,
-  BookOpen,
-  Compass,
-  Hand,
-  BookHeart,
-  Star,
-  CalendarDays,
-} from "lucide-react";
-
-const features = [
-  { path: "/prayer-times", icon: Clock, label: "Prayer Times", color: "from-primary to-islamic-teal" },
-  { path: "/quran", icon: BookOpen, label: "Quran", color: "from-islamic-green-dark to-primary" },
-  { path: "/qibla", icon: Compass, label: "Qibla", color: "from-islamic-teal to-primary" },
-  { path: "/dhikr", icon: Hand, label: "Dhikr", color: "from-primary to-islamic-green-light" },
-  { path: "/duas", icon: BookHeart, label: "Duas", color: "from-islamic-green-dark to-islamic-teal" },
-  { path: "/names", icon: Star, label: "99 Names", color: "from-islamic-gold-dark to-islamic-gold" },
-  { path: "/calendar", icon: CalendarDays, label: "Calendar", color: "from-islamic-teal to-islamic-green-dark" },
-];
+import { Clock, BookOpen, Compass, Hand, BookHeart, Star, CalendarDays } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const FeatureGrid = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  const features = [
+    { path: "/prayer-times", icon: Clock, label: t("prayerTimes"), color: "from-primary to-islamic-teal" },
+    { path: "/quran", icon: BookOpen, label: t("quran"), color: "from-islamic-green-dark to-primary" },
+    { path: "/qibla", icon: Compass, label: t("qibla"), color: "from-islamic-teal to-primary" },
+    { path: "/dhikr", icon: Hand, label: t("dhikr"), color: "from-primary to-islamic-green-light" },
+    { path: "/duas", icon: BookHeart, label: t("duas"), color: "from-islamic-green-dark to-islamic-teal" },
+    { path: "/names", icon: Star, label: t("names99"), color: "from-islamic-gold-dark to-islamic-gold" },
+    { path: "/calendar", icon: CalendarDays, label: t("calendar"), color: "from-islamic-teal to-islamic-green-dark" },
+  ];
 
   return (
     <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
