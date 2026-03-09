@@ -8,9 +8,11 @@ import BottomNav from "@/components/layout/BottomNav";
 import Index from "./pages/Index";
 import PrayerTimes from "./pages/PrayerTimes";
 import Quran from "./pages/Quran";
+import SurahDetail from "./pages/SurahDetail";
 import Qibla from "./pages/Qibla";
 import Dhikr from "./pages/Dhikr";
 import Duas from "./pages/Duas";
+import DuaDetail from "./pages/DuaDetail";
 import Names from "./pages/Names";
 import IslamicCalendar from "./pages/IslamicCalendar";
 import SettingsPage from "./pages/SettingsPage";
@@ -30,9 +32,11 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/prayer-times" element={<PrayerTimes />} />
               <Route path="/quran" element={<Quran />} />
+              <Route path="/quran/:number" element={<SurahDetail />} />
               <Route path="/qibla" element={<Qibla />} />
               <Route path="/dhikr" element={<Dhikr />} />
               <Route path="/duas" element={<Duas />} />
+              <Route path="/duas/:category" element={<DuaDetail />} />
               <Route path="/names" element={<Names />} />
               <Route path="/calendar" element={<IslamicCalendar />} />
               <Route path="/settings" element={<SettingsPage />} />

@@ -1,26 +1,24 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-
-const names = [
-  { number: 1, arabic: "ٱلرَّحْمَٰنُ", transliteration: "Ar-Rahman", meaning: "The Most Gracious" },
-  { number: 2, arabic: "ٱلرَّحِيمُ", transliteration: "Ar-Raheem", meaning: "The Most Merciful" },
-  { number: 3, arabic: "ٱلْمَلِكُ", transliteration: "Al-Malik", meaning: "The King" },
-  { number: 4, arabic: "ٱلْقُدُّوسُ", transliteration: "Al-Quddus", meaning: "The Most Sacred" },
-  { number: 5, arabic: "ٱلسَّلَامُ", transliteration: "As-Salam", meaning: "The Source of Peace" },
-  { number: 6, arabic: "ٱلْمُؤْمِنُ", transliteration: "Al-Mu'min", meaning: "The Guardian of Faith" },
-  { number: 7, arabic: "ٱلْمُهَيْمِنُ", transliteration: "Al-Muhaymin", meaning: "The Protector" },
-  { number: 8, arabic: "ٱلْعَزِيزُ", transliteration: "Al-Aziz", meaning: "The Almighty" },
-  { number: 9, arabic: "ٱلْجَبَّارُ", transliteration: "Al-Jabbar", meaning: "The Compeller" },
-  { number: 10, arabic: "ٱلْمُتَكَبِّرُ", transliteration: "Al-Mutakabbir", meaning: "The Supreme" },
-  { number: 11, arabic: "ٱلْخَالِقُ", transliteration: "Al-Khaliq", meaning: "The Creator" },
-  { number: 12, arabic: "ٱلْبَارِئُ", transliteration: "Al-Bari", meaning: "The Originator" },
-];
+import { namesOfAllah } from "@/data/namesOfAllah";
 
 const Names = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const [search, setSearch] = useState("");
+
+  const filtered = useMemo(() => {
+    if (!search) return namesOfAllah;
+    const q = search.toLowerCase();
+    return namesOfAllah.filter(n =>
+      n.transliteration.toLowerCase().includes(q) ||
+      n.meaning.toLowerCase().includes(q) ||
+      n.arabic.includes(search)
+    );
+  }, [search]);
 
   return (
     <div className="min-h-screen pb-20 bg-background">
@@ -29,19 +27,27 @@ const Names = () => {
           <div className="flex items-center gap-3 text-primary-foreground">
             <button onClick={() => navigate("/")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
             <h1 className="text-lg font-bold flex-1">{t("namesOfAllah")}</h1>
+            <Search className="h-5 w-5 opacity-80" />
           </div>
           <p className="text-primary-foreground font-arabic text-center text-xl mt-2">أَسْمَاءُ ٱللَّٰهِ ٱلْحُسْنَىٰ</p>
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search names..."
+            className="w-full mt-3 px-4 py-2 rounded-xl bg-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm outline-none"
+          />
         </div>
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-4 grid grid-cols-2 gap-3">
-        {names.map((name, i) => (
+        {filtered.map((name, i) => (
           <motion.div
             key={name.number}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.03 }}
-            className="p-4 bg-card rounded-xl border border-border text-center space-y-1 hover:shadow-md transition-shadow cursor-pointer"
+            transition={{ delay: Math.min(i * 0.02, 0.5) }}
+            className="p-4 bg-card rounded-xl border border-border text-center space-y-1 hover:shadow-md transition-shadow"
           >
             <span className="text-xs text-muted-foreground">#{name.number}</span>
             <p className="text-2xl font-arabic text-primary">{name.arabic}</p>
