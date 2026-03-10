@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useLanguage, LANGUAGES, type LanguageCode } from "@/i18n/LanguageContext";
 import { useTheme } from "@/hooks/useTheme";
+import { usePrayerTimes } from "@/hooks/usePrayerTimes";
+import { useAzanNotifications } from "@/hooks/useAzanNotifications";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
