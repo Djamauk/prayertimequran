@@ -12,6 +12,8 @@ const SettingsPage = () => {
   const navigate = useNavigate();
   const { t, lang, setLang } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const { prayers } = usePrayerTimes();
+  const azan = useAzanNotifications(prayers);
   const [showLangPicker, setShowLangPicker] = useState(false);
 
   const currentLangName = LANGUAGES.find((l) => l.code === lang)?.nativeName || "English";
