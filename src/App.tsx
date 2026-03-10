@@ -15,6 +15,7 @@ import Duas from "./pages/Duas";
 import DuaDetail from "./pages/DuaDetail";
 import Names from "./pages/Names";
 import IslamicCalendar from "./pages/IslamicCalendar";
+import SearchPage from "./pages/SearchPage";
 import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
@@ -39,6 +40,7 @@ const App = () => {
               <Route path="/duas/:category" element={<DuaDetail />} />
               <Route path="/names" element={<Names />} />
               <Route path="/calendar" element={<IslamicCalendar />} />
+              <Route path="/search" element={<SearchPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

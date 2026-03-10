@@ -77,6 +77,8 @@ const am = {
   azanNotifications: "የአዛን ማሳወቂያዎች",
   on: "በርቷል",
   off: "ጠፍቷል",
+  search: "ፈልግ",
+  searchPlaceholder: "ሱራዎችን፣ ዱዓዎችን ይፈልጉ...",
 };
 
 export default am;

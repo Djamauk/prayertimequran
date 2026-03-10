@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useLanguage, LANGUAGES, type LanguageCode } from "@/i18n/LanguageContext";
 import { useTheme } from "@/hooks/useTheme";
+import { usePrayerTimes } from "@/hooks/usePrayerTimes";
+import { useAzanNotifications } from "@/hooks/useAzanNotifications";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +12,8 @@ const SettingsPage = () => {
   const navigate = useNavigate();
   const { t, lang, setLang } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const { prayers } = usePrayerTimes();
+  const azan = useAzanNotifications(prayers);
   const [showLangPicker, setShowLangPicker] = useState(false);
 
   const currentLangName = LANGUAGES.find((l) => l.code === lang)?.nativeName || "English";
@@ -82,10 +86,11 @@ const SettingsPage = () => {
               <span className="flex-1 text-sm font-medium text-foreground">{t("calculationMethod")}</span>
               <span className="text-xs text-muted-foreground">MWL</span>
             </div>
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border last:border-0">
+            <div className="flex items-center gap-3 px-4 py-3.5">
               <Bell className="h-5 w-5 text-primary" />
               <span className="flex-1 text-sm font-medium text-foreground">{t("azanNotifications")}</span>
-              <span className="text-xs text-muted-foreground">{t("on")}</span>
+              <span className="text-xs text-muted-foreground mr-2">{azan.enabled ? t("on") : t("off")}</span>
+              <Switch checked={azan.enabled} onCheckedChange={azan.toggle} />
             </div>
           </div>
         </div>

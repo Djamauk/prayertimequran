@@ -77,6 +77,8 @@ const so = {
   azanNotifications: "Ogeysiisyada Aadhanka",
   on: "Furan",
   off: "Xiran",
+  search: "Raadi",
+  searchPlaceholder: "Raadi suuradaha, ducadaha...",
 };
 
 export default so;

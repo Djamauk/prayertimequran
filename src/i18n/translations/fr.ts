@@ -77,6 +77,8 @@ const fr = {
   azanNotifications: "Notifications d'Adhan",
   on: "Activé",
   off: "Désactivé",
+  search: "Rechercher",
+  searchPlaceholder: "Rechercher sourates, duas...",
 };
 
 export default fr;
