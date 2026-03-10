@@ -77,6 +77,8 @@ const om = {
   azanNotifications: "Beeksisa Azaanaa",
   on: "Banaa",
   off: "Cufaa",
+  search: "Barbaadi",
+  searchPlaceholder: "Suuraa, du'aa barbaadi...",
 };
 
 export default om;

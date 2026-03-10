@@ -77,6 +77,8 @@ const sw = {
   azanNotifications: "Arifa za Adhana",
   on: "Washa",
   off: "Zima",
+  search: "Tafuta",
+  searchPlaceholder: "Tafuta sura, dua...",
 };
 
 export default sw;

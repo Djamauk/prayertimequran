@@ -77,6 +77,8 @@ const aa = {
   azanNotifications: "Aadaan Ogeysiis",
   on: "Furan",
   off: "Xidhan",
+  search: "Barbaadi",
+  searchPlaceholder: "Suuradaha, ducadaha barbaadi...",
 };
 
 export default aa;

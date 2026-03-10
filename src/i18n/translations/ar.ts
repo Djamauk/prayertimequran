@@ -77,6 +77,8 @@ const ar = {
   azanNotifications: "إشعارات الأذان",
   on: "مفعّل",
   off: "معطّل",
+  search: "بحث",
+  searchPlaceholder: "ابحث في السور والأدعية...",
 };
 
 export default ar;
