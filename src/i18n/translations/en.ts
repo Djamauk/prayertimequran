@@ -76,6 +76,10 @@ const en = {
   islamicCalendar: "Islamic Calendar",
   importantDates: "Important Dates",
 
+  // Search
+  search: "Search",
+  searchPlaceholder: "Search surahs, duas...",
+
   // Settings
   general: "General",
   language: "Language",
