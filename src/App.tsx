@@ -15,6 +15,7 @@ import Duas from "./pages/Duas";
 import DuaDetail from "./pages/DuaDetail";
 import Names from "./pages/Names";
 import IslamicCalendar from "./pages/IslamicCalendar";
+import SearchPage from "./pages/SearchPage";
 import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
