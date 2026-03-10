@@ -40,6 +40,7 @@ const App = () => {
               <Route path="/duas/:category" element={<DuaDetail />} />
               <Route path="/names" element={<Names />} />
               <Route path="/calendar" element={<IslamicCalendar />} />
+              <Route path="/search" element={<SearchPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
