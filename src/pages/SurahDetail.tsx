@@ -2,7 +2,7 @@ import { ArrowLeft, Play, Pause, Bookmark, BookmarkCheck } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage, LanguageCode } from "@/i18n/LanguageContext";
 import { allSurahs } from "@/data/surahs";
 
 interface Ayah {
@@ -18,11 +18,23 @@ const RECITERS: Record<string, string> = {
   "ar.abdulbasitmurattal": "Abdul Basit (Murattal)",
 };
 
+const TRANSLATION_EDITIONS: Record<LanguageCode, string | null> = {
+  en: "en.asad",
+  ar: null,
+  fr: "fr.hamidullah",
+  so: "so.abdulwali",
+  sw: "en.asad",
+  am: "en.asad",
+  aa: "en.asad",
+  om: "en.asad",
+};
+
 const SurahDetail = () => {
   const { number } = useParams<{ number: string }>();
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [ayahs, setAyahs] = useState<Ayah[]>([]);
+  const [translations, setTranslations] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [playingAyah, setPlayingAyah] = useState<number | null>(null);
@@ -44,15 +56,25 @@ const SurahDetail = () => {
     localStorage.setItem("lastRead", JSON.stringify({ surah: surahNum, name: surahInfo?.name }));
   }, [surahNum, surahInfo]);
 
-  // Fetch ayahs
+  // Fetch ayahs + translation
   useEffect(() => {
     setLoading(true);
     setError(null);
-    fetch(`https://api.alquran.cloud/v1/surah/${surahNum}/${reciter}`)
-      .then(r => r.json())
-      .then(data => {
-        if (data.code === 200) {
-          setAyahs(data.data.ayahs.map((a: any) => ({
+
+    const arabicFetch = fetch(`https://api.alquran.cloud/v1/surah/${surahNum}/${reciter}`)
+      .then(r => r.json());
+
+    const translationEdition = TRANSLATION_EDITIONS[lang];
+    const translationFetch = translationEdition
+      ? fetch(`https://api.alquran.cloud/v1/surah/${surahNum}/${translationEdition}`)
+          .then(r => r.json())
+          .catch(() => null)
+      : Promise.resolve(null);
+
+    Promise.all([arabicFetch, translationFetch])
+      .then(([arabicData, transData]) => {
+        if (arabicData.code === 200) {
+          setAyahs(arabicData.data.ayahs.map((a: any) => ({
             number: a.number,
             numberInSurah: a.numberInSurah,
             text: a.text,
@@ -61,10 +83,16 @@ const SurahDetail = () => {
         } else {
           setError("Failed to load surah");
         }
+
+        if (transData?.code === 200) {
+          setTranslations(transData.data.ayahs.map((a: any) => a.text));
+        } else {
+          setTranslations([]);
+        }
       })
       .catch(() => setError("Failed to load surah"))
       .finally(() => setLoading(false));
-  }, [surahNum, reciter]);
+  }, [surahNum, reciter, lang]);
 
   const toggleBookmark = useCallback((ayahNum: number) => {
     setBookmarks(prev => {
@@ -164,6 +192,11 @@ const SurahDetail = () => {
                 </div>
               </div>
               <p className="text-right font-arabic text-xl leading-loose text-foreground">{ayah.text}</p>
+              {translations[i] && (
+                <p className="mt-3 pt-3 border-t border-border text-sm leading-relaxed text-muted-foreground">
+                  {translations[i]}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
