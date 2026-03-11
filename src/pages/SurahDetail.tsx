@@ -22,9 +22,9 @@ const TRANSLATION_EDITIONS: Record<LanguageCode, string | null> = {
   en: "en.asad",
   ar: null,
   fr: "fr.hamidullah",
-  so: "so.abdulwali",
-  sw: "en.asad",
-  am: "en.asad",
+  so: "so.abduh",
+  sw: "sw.barwani",
+  am: "am.sadiq",
   aa: "en.asad",
   om: "en.asad",
 };
