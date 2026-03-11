@@ -206,7 +206,7 @@ const SurahDetail = () => {
                 </div>
               </div>
               <p className="text-right font-arabic text-xl leading-loose text-foreground">{ayah.text}</p>
-              {translations[i] && (
+              {showTranslation && translations[i] && (
                 <p className="mt-3 pt-3 border-t border-border text-sm leading-relaxed text-muted-foreground">
                   {translations[i]}
                 </p>
