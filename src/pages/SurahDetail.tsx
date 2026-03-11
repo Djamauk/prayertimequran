@@ -40,6 +40,7 @@ const SurahDetail = () => {
   const [playingAyah, setPlayingAyah] = useState<number | null>(null);
   const [bookmarks, setBookmarks] = useState<number[]>([]);
   const [reciter, setReciter] = useState("ar.alafasy");
+  const [showTranslation, setShowTranslation] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const surahNum = parseInt(number || "1");
