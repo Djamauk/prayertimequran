@@ -40,16 +40,15 @@ const PrayerBanner = () => {
 
   return (
     <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card text-card-foreground font-sans">
-      <div className="islamic-gradient islamic-pattern px-4 py-3 sm:px-5 sm:py-3.5 text-primary-foreground">
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold min-w-0">
-            <MapPin className="h-3.5 w-3.5 shrink-0" />
-            <span className="truncate">{loading ? t("loadingLocation") : locationName || t("yourLocation")}</span>
-          </div>
-          <p className={`text-xs sm:text-sm whitespace-nowrap ${lang === "ar" ? "font-arabic" : "font-sans"}`}>
-            {hijriDate}
-          </p>
+      <div className="bg-primary px-4 py-3 sm:px-5 sm:py-3.5 text-primary-foreground">
+        <div className="inline-flex max-w-full items-center gap-1.5 rounded-md bg-primary-foreground/20 px-2.5 py-1.5 text-sm font-semibold leading-none">
+          <MapPin className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">{loading ? t("loadingLocation") : locationName || t("yourLocation")}</span>
         </div>
+
+        <p className={`mt-2 inline-block rounded-md bg-primary-foreground/20 px-2.5 py-1.5 text-sm font-medium leading-none ${lang === "ar" ? "font-arabic" : "font-sans"}`}>
+          {hijriDate}
+        </p>
       </div>
 
       <div className="p-4 sm:p-5">
