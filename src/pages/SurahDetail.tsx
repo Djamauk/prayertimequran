@@ -1,4 +1,4 @@
-import { ArrowLeft, Play, Pause, Bookmark, BookmarkCheck } from "lucide-react";
+import { ArrowLeft, Play, Pause, Bookmark, BookmarkCheck, Languages } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
@@ -40,6 +40,7 @@ const SurahDetail = () => {
   const [playingAyah, setPlayingAyah] = useState<number | null>(null);
   const [bookmarks, setBookmarks] = useState<number[]>([]);
   const [reciter, setReciter] = useState("ar.alafasy");
+  const [showTranslation, setShowTranslation] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const surahNum = parseInt(number || "1");
@@ -138,21 +139,34 @@ const SurahDetail = () => {
       </div>
 
       <div className="max-w-lg mx-auto px-4 mt-3">
-        {/* Reciter selector */}
-        <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide">
-          {Object.entries(RECITERS).map(([key, name]) => (
+        {/* Reciter selector + translation toggle */}
+        <div className="flex items-center gap-2 pb-3">
+          <div className="flex gap-2 overflow-x-auto flex-1 scrollbar-hide">
+            {Object.entries(RECITERS).map(([key, name]) => (
+              <button
+                key={key}
+                onClick={() => setReciter(key)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
+                  reciter === key
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-secondary-foreground"
+                }`}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+          {lang !== "ar" && (
             <button
-              key={key}
-              onClick={() => setReciter(key)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-                reciter === key
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground"
+              onClick={() => setShowTranslation(prev => !prev)}
+              className={`p-2 rounded-full shrink-0 transition-colors ${
+                showTranslation ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"
               }`}
+              title={showTranslation ? "Hide translation" : "Show translation"}
             >
-              {name}
+              <Languages className="h-4 w-4" />
             </button>
-          ))}
+          )}
         </div>
 
         {loading && (
@@ -192,7 +206,7 @@ const SurahDetail = () => {
                 </div>
               </div>
               <p className="text-right font-arabic text-xl leading-loose text-foreground">{ayah.text}</p>
-              {translations[i] && (
+              {showTranslation && translations[i] && (
                 <p className="mt-3 pt-3 border-t border-border text-sm leading-relaxed text-muted-foreground">
                   {translations[i]}
                 </p>

@@ -40,21 +40,21 @@ const PrayerBanner = () => {
 
   return (
     <div className="islamic-gradient islamic-pattern rounded-2xl p-5 text-primary-foreground shadow-lg">
-      <div className="flex items-center gap-1.5 text-xs opacity-80 mb-1">
-        <MapPin className="h-3 w-3" />
+      <div className="flex items-center gap-1.5 text-sm font-medium mb-1">
+        <MapPin className="h-3.5 w-3.5" />
         <span>{loading ? t("loadingLocation") : locationName || t("yourLocation")}</span>
       </div>
-      <p className="text-xs opacity-70 font-arabic mb-3">{hijriDate}</p>
+      <p className="text-sm font-arabic mb-3" style={{ opacity: 0.9 }}>{hijriDate}</p>
 
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-xs opacity-80 uppercase tracking-wider">{t("nextPrayer")}</p>
+          <p className="text-xs font-semibold uppercase tracking-wider" style={{ opacity: 0.95 }}>{t("nextPrayer")}</p>
           <p className="text-2xl font-bold">{prayerNameMap[next.name] || next.name}</p>
-          <p className="text-lg font-semibold opacity-90">{next.time}</p>
+          <p className="text-lg font-semibold">{next.time}</p>
         </div>
         <div className="text-right">
-          <div className="flex items-center gap-1 text-xs opacity-80 mb-1">
-            <Clock className="h-3 w-3" />
+          <div className="flex items-center gap-1 text-xs font-semibold mb-1" style={{ opacity: 0.95 }}>
+            <Clock className="h-3.5 w-3.5" />
             <span>{t("timeRemaining")}</span>
           </div>
           <p className="text-xl font-bold animate-pulse-glow">
