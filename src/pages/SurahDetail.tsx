@@ -1,4 +1,4 @@
-import { ArrowLeft, Play, Pause, Bookmark, BookmarkCheck } from "lucide-react";
+import { ArrowLeft, Play, Pause, Bookmark, BookmarkCheck, Languages } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
