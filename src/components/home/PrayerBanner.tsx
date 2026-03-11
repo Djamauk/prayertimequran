@@ -17,7 +17,7 @@ function getHijriDate(): string {
 }
 
 const PrayerBanner = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { prayers, loading, locationName } = usePrayerTimes();
   const [next, setNext] = useState({ name: "", time: "--:--", countdown: "--" });
   const hijriDate = getHijriDate();
@@ -39,25 +39,33 @@ const PrayerBanner = () => {
   };
 
   return (
-    <div className="islamic-gradient islamic-pattern rounded-2xl p-5 text-primary-foreground shadow-lg">
-      <div className="flex items-center gap-1.5 text-sm font-medium mb-1">
-        <MapPin className="h-3.5 w-3.5" />
+    <div className="islamic-gradient islamic-pattern bg-primary rounded-2xl p-5 text-primary-foreground shadow-lg">
+      <div className="flex items-center gap-1.5 text-sm font-semibold text-primary-foreground mb-1.5">
+        <MapPin className="h-4 w-4" />
         <span>{loading ? t("loadingLocation") : locationName || t("yourLocation")}</span>
       </div>
-      <p className="text-sm font-arabic mb-3" style={{ opacity: 0.9 }}>{hijriDate}</p>
+
+      <p className={`text-sm mb-3 text-primary-foreground ${lang === "ar" ? "font-arabic" : "font-sans"}`}>
+        {hijriDate}
+      </p>
 
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider" style={{ opacity: 0.95 }}>{t("nextPrayer")}</p>
-          <p className="text-2xl font-bold">{prayerNameMap[next.name] || next.name}</p>
-          <p className="text-lg font-semibold">{next.time}</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary-foreground mb-0.5">
+            {t("nextPrayer")}
+          </p>
+          <p className="text-2xl font-bold text-primary-foreground leading-tight">
+            {prayerNameMap[next.name] || next.name}
+          </p>
+          <p className="text-lg font-semibold text-primary-foreground">{next.time}</p>
         </div>
+
         <div className="text-right">
-          <div className="flex items-center gap-1 text-xs font-semibold mb-1" style={{ opacity: 0.95 }}>
+          <div className="flex items-center justify-end gap-1 text-xs font-semibold text-primary-foreground mb-1">
             <Clock className="h-3.5 w-3.5" />
             <span>{t("timeRemaining")}</span>
           </div>
-          <p className="text-xl font-bold animate-pulse-glow">
+          <p className="text-xl font-bold text-primary-foreground">
             {next.countdown === "Tomorrow" ? t("tomorrow") : next.countdown}
           </p>
         </div>
@@ -67,3 +75,4 @@ const PrayerBanner = () => {
 };
 
 export default PrayerBanner;
+
