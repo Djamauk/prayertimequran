@@ -21,7 +21,7 @@ const SettingsPage = () => {
   return (
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-6 rounded-b-3xl">
-        <div className="max-w-lg mx-auto flex items-center gap-3 text-primary-foreground">
+        <div className="max-w-lg mx-auto flex items-center gap-3 text-white">
           <button onClick={() => navigate("/")} className="p-1">
             <ArrowLeft className="h-5 w-5" />
           </button>

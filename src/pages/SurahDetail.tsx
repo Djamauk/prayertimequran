@@ -124,7 +124,7 @@ const SurahDetail = () => {
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-8 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
-          <div className="flex items-center gap-3 text-primary-foreground mb-3">
+          <div className="flex items-center gap-3 text-white mb-3">
             <button onClick={() => navigate("/quran")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
             <div className="flex-1">
               <h1 className="text-lg font-bold">{surahInfo?.name || `Surah ${surahNum}`}</h1>
@@ -133,7 +133,7 @@ const SurahDetail = () => {
             <p className="text-2xl font-arabic">{surahInfo?.arabic}</p>
           </div>
           {surahNum !== 9 && (
-            <p className="text-primary-foreground/90 font-arabic text-center text-xl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+            <p className="text-white/90 font-arabic text-center text-xl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
           )}
         </div>
       </div>
