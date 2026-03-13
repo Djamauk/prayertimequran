@@ -117,12 +117,19 @@
 
 @layer utilities {
   .islamic-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--islamic-green-dark)) 0%,
-      hsl(var(--islamic-green)) 50%,
-      hsl(var(--islamic-teal)) 100%
-    );
+    background:
+      linear-gradient(
+        0deg,
+        hsl(var(--islamic-green-dark) / 0.28) 0%,
+        hsl(var(--islamic-green-dark) / 0.28) 100%
+      ),
+      linear-gradient(
+        135deg,
+        hsl(var(--islamic-green-dark)) 0%,
+        hsl(var(--primary)) 52%,
+        hsl(var(--islamic-teal)) 100%
+      );
+    color: hsl(var(--card));
   }
 
   .islamic-gradient-soft {
