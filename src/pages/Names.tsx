@@ -24,18 +24,18 @@ const Names = () => {
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-8 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
-          <div className="flex items-center gap-3 text-primary-foreground">
+          <div className="flex items-center gap-3 text-white">
             <button onClick={() => navigate("/")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
             <h1 className="text-lg font-bold flex-1">{t("namesOfAllah")}</h1>
             <Search className="h-5 w-5 opacity-80" />
           </div>
-          <p className="text-primary-foreground font-arabic text-center text-xl mt-2">أَسْمَاءُ ٱللَّٰهِ ٱلْحُسْنَىٰ</p>
+          <p className="text-white font-arabic text-center text-xl mt-2">أَسْمَاءُ ٱللَّٰهِ ٱلْحُسْنَىٰ</p>
           <input
             type="text"
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Search names..."
-            className="w-full mt-3 px-4 py-2 rounded-xl bg-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm outline-none"
+            className="w-full mt-3 px-4 py-2 rounded-xl bg-white/20 text-white placeholder:text-white/50 text-sm outline-none"
           />
         </div>
       </div>

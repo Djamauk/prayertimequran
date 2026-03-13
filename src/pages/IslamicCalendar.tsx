@@ -17,11 +17,11 @@ const IslamicCalendar = () => {
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-8 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
-          <div className="flex items-center gap-3 text-primary-foreground">
+          <div className="flex items-center gap-3 text-white">
             <button onClick={() => navigate("/")} className="p-1"><ArrowLeft className="h-5 w-5" /></button>
             <h1 className="text-lg font-bold flex-1">{t("islamicCalendar")}</h1>
           </div>
-          <p className="text-primary-foreground/80 text-sm mt-1 font-arabic">{todayHijri.formatted}</p>
+          <p className="text-white/80 text-sm mt-1 font-arabic">{todayHijri.formatted}</p>
         </div>
       </div>
 

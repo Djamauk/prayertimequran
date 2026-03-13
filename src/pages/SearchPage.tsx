@@ -75,20 +75,20 @@ const SearchPage = () => {
     <div className="min-h-screen pb-20 bg-background">
       <div className="islamic-gradient islamic-pattern p-5 pt-6 pb-6 rounded-b-3xl">
         <div className="max-w-lg mx-auto">
-          <div className="flex items-center gap-3 text-primary-foreground mb-3">
+          <div className="flex items-center gap-3 text-white mb-3">
             <button onClick={() => navigate(-1)} className="p-1">
               <ArrowLeft className="h-5 w-5" />
             </button>
             <h1 className="text-lg font-bold">{t("search")}</h1>
           </div>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary-foreground/50" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/50" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("searchPlaceholder")}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm outline-none"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/20 text-white placeholder:text-white/50 text-sm outline-none"
               autoFocus
             />
           </div>
