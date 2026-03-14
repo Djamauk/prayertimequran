@@ -71,6 +71,7 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
       audioRef.current.currentTime = 0;
     }
     const audio = new Audio(AZAN_URLS[v]);
+    audio.volume = volume;
     audioRef.current = audio;
     audio.play().catch(() => {
       // Autoplay blocked — user interaction required
