@@ -96,6 +96,7 @@ const en = {
   muezzinMadinah: "Madinah",
   muezzinSimple: "Simple",
   testAzan: "Test Azan",
+  volume: "Volume",
   on: "On",
   off: "Off",
 };

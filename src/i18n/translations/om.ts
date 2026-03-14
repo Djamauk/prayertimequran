@@ -80,6 +80,7 @@ const om = {
   muezzinMadinah: "Madiinaa",
   muezzinSimple: "Salphaa",
   testAzan: "Azaana Yaalii",
+  volume: "Sagalee",
   on: "Banaa",
   off: "Cufaa",
   search: "Barbaadi",

@@ -80,6 +80,7 @@ const so = {
   muezzinMadinah: "Madiinah",
   muezzinSimple: "Fudud",
   testAzan: "Tijaabi Aadhanka",
+  volume: "Codka",
   on: "Furan",
   off: "Xiran",
   search: "Raadi",

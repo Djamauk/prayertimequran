@@ -1,4 +1,4 @@
-import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight, Volume2, Play, Square } from "lucide-react";
+import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight, Volume2, Play, Square, Volume1 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { useLanguage, LANGUAGES } from "@/i18n/LanguageContext";
@@ -6,6 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 import { useAzanNotifications, type MuezzinVoice } from "@/hooks/useAzanNotifications";
 import { Switch } from "@/components/ui/switch";
+import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
 const MUEZZIN_OPTIONS: { value: MuezzinVoice; labelKey: string }[] = [
@@ -150,6 +151,20 @@ const SettingsPage = () => {
                 ))}
               </div>
             )}
+
+            {/* Volume Slider */}
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border">
+              <Volume1 className="h-5 w-5 text-primary" />
+              <span className="text-sm font-medium text-foreground whitespace-nowrap">{t("volume" as any)}</span>
+              <Slider
+                value={[azan.volume * 100]}
+                onValueChange={([v]) => azan.setVolume(v / 100)}
+                max={100}
+                step={1}
+                className="flex-1"
+              />
+              <span className="text-xs text-muted-foreground w-8 text-right">{Math.round(azan.volume * 100)}%</span>
+            </div>
 
             {/* Test Azan */}
             <button

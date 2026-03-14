@@ -19,6 +19,10 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
   const [muezzin, setMuezzinState] = useState<MuezzinVoice>(() => {
     return (localStorage.getItem("azanMuezzin") as MuezzinVoice) || "makkah";
   });
+  const [volume, setVolumeState] = useState(() => {
+    const saved = localStorage.getItem("azanVolume");
+    return saved ? parseFloat(saved) : 0.8;
+  });
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const requestPermission = useCallback(async () => {
@@ -51,6 +55,14 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
     localStorage.setItem("azanMuezzin", voice);
   }, []);
 
+  const setVolume = useCallback((v: number) => {
+    setVolumeState(v);
+    localStorage.setItem("azanVolume", String(v));
+    if (audioRef.current) {
+      audioRef.current.volume = v;
+    }
+  }, []);
+
   const playAzan = useCallback((voice?: MuezzinVoice) => {
     const v = voice || muezzin;
     // Stop previous
@@ -59,11 +71,12 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
       audioRef.current.currentTime = 0;
     }
     const audio = new Audio(AZAN_URLS[v]);
+    audio.volume = volume;
     audioRef.current = audio;
     audio.play().catch(() => {
       // Autoplay blocked — user interaction required
     });
-  }, [muezzin]);
+  }, [muezzin, volume]);
 
   const stopAzan = useCallback(() => {
     if (audioRef.current) {
@@ -101,5 +114,5 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
     return () => timers.forEach(clearTimeout);
   }, [enabled, permission, prayers, playAzan]);
 
-  return { enabled, permission, toggle, muezzin, setMuezzin, playAzan, stopAzan };
+  return { enabled, permission, toggle, muezzin, setMuezzin, volume, setVolume, playAzan, stopAzan };
 }

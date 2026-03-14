@@ -80,6 +80,7 @@ const sw = {
   muezzinMadinah: "Madina",
   muezzinSimple: "Rahisi",
   testAzan: "Jaribu Adhana",
+  volume: "Sauti",
   on: "Washa",
   off: "Zima",
   search: "Tafuta",

@@ -80,6 +80,7 @@ const ar = {
   muezzinMadinah: "المدينة",
   muezzinSimple: "بسيط",
   testAzan: "تجربة الأذان",
+  volume: "مستوى الصوت",
   on: "مفعّل",
   off: "معطّل",
   search: "بحث",

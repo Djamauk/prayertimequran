@@ -80,6 +80,7 @@ const aa = {
   muezzinMadinah: "Madiinah",
   muezzinSimple: "Fudud",
   testAzan: "Aadaan Tijaabi",
+  volume: "Labbad",
   on: "Furan",
   off: "Xidhan",
   search: "Barbaadi",
