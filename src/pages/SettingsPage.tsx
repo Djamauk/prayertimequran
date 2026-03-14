@@ -152,6 +152,20 @@ const SettingsPage = () => {
               </div>
             )}
 
+            {/* Volume Slider */}
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border">
+              <Volume1 className="h-5 w-5 text-primary" />
+              <span className="text-sm font-medium text-foreground whitespace-nowrap">{t("volume" as any)}</span>
+              <Slider
+                value={[azan.volume * 100]}
+                onValueChange={([v]) => azan.setVolume(v / 100)}
+                max={100}
+                step={1}
+                className="flex-1"
+              />
+              <span className="text-xs text-muted-foreground w-8 text-right">{Math.round(azan.volume * 100)}%</span>
+            </div>
+
             {/* Test Azan */}
             <button
               onClick={handleTestAzan}
