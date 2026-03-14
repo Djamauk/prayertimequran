@@ -76,7 +76,7 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
     audio.play().catch(() => {
       // Autoplay blocked — user interaction required
     });
-  }, [muezzin]);
+  }, [muezzin, volume]);
 
   const stopAzan = useCallback(() => {
     if (audioRef.current) {
