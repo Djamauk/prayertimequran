@@ -55,6 +55,14 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
     localStorage.setItem("azanMuezzin", voice);
   }, []);
 
+  const setVolume = useCallback((v: number) => {
+    setVolumeState(v);
+    localStorage.setItem("azanVolume", String(v));
+    if (audioRef.current) {
+      audioRef.current.volume = v;
+    }
+  }, []);
+
   const playAzan = useCallback((voice?: MuezzinVoice) => {
     const v = voice || muezzin;
     // Stop previous
