@@ -114,5 +114,5 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
     return () => timers.forEach(clearTimeout);
   }, [enabled, permission, prayers, playAzan]);
 
-  return { enabled, permission, toggle, muezzin, setMuezzin, playAzan, stopAzan };
+  return { enabled, permission, toggle, muezzin, setMuezzin, volume, setVolume, playAzan, stopAzan };
 }
