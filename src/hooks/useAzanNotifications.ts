@@ -73,8 +73,8 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
     const audio = new Audio(AZAN_URLS[v]);
     audio.volume = volume;
     audioRef.current = audio;
-    audio.play().catch(() => {
-      // Autoplay blocked — user interaction required
+    audio.play().catch((err) => {
+      console.error("Azan playback failed:", err);
     });
   }, [muezzin, volume]);
 
