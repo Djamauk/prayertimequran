@@ -1,4 +1,4 @@
-import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight, Volume2, Play, Square } from "lucide-react";
+import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight, Volume2, Play, Square, Volume1 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { useLanguage, LANGUAGES } from "@/i18n/LanguageContext";
