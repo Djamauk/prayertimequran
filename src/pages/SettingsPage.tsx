@@ -6,6 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 import { useAzanNotifications, type MuezzinVoice } from "@/hooks/useAzanNotifications";
 import { Switch } from "@/components/ui/switch";
+import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 
 const MUEZZIN_OPTIONS: { value: MuezzinVoice; labelKey: string }[] = [
