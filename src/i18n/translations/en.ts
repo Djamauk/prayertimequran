@@ -91,6 +91,11 @@ const en = {
   autoDetect: "Auto-detect",
   calculationMethod: "Calculation Method",
   azanNotifications: "Azan Notifications",
+  azanSound: "Azan Sound",
+  muezzinMakkah: "Makkah",
+  muezzinMadinah: "Madinah",
+  muezzinSimple: "Simple",
+  testAzan: "Test Azan",
   on: "On",
   off: "Off",
 };

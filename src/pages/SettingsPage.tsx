@@ -1,12 +1,18 @@
-import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight } from "lucide-react";
+import { ArrowLeft, Globe, Moon, Sun, MapPin, Bell, Calculator, ChevronRight, Volume2, Play, Square } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useLanguage, LANGUAGES, type LanguageCode } from "@/i18n/LanguageContext";
+import { useState, useRef } from "react";
+import { useLanguage, LANGUAGES } from "@/i18n/LanguageContext";
 import { useTheme } from "@/hooks/useTheme";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
-import { useAzanNotifications } from "@/hooks/useAzanNotifications";
+import { useAzanNotifications, type MuezzinVoice } from "@/hooks/useAzanNotifications";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
+
+const MUEZZIN_OPTIONS: { value: MuezzinVoice; labelKey: string }[] = [
+  { value: "makkah", labelKey: "muezzinMakkah" },
+  { value: "madinah", labelKey: "muezzinMadinah" },
+  { value: "simple", labelKey: "muezzinSimple" },
+];
 
 const SettingsPage = () => {
   const navigate = useNavigate();
@@ -15,8 +21,32 @@ const SettingsPage = () => {
   const { prayers } = usePrayerTimes();
   const azan = useAzanNotifications(prayers);
   const [showLangPicker, setShowLangPicker] = useState(false);
+  const [showMuezzinPicker, setShowMuezzinPicker] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const playingRef = useRef(false);
 
   const currentLangName = LANGUAGES.find((l) => l.code === lang)?.nativeName || "English";
+  const currentMuezzinLabel = t((MUEZZIN_OPTIONS.find((m) => m.value === azan.muezzin)?.labelKey || "muezzinMakkah") as any);
+
+  const handleTestAzan = () => {
+    if (isPlaying) {
+      azan.stopAzan();
+      setIsPlaying(false);
+      playingRef.current = false;
+    } else {
+      azan.playAzan();
+      setIsPlaying(true);
+      playingRef.current = true;
+      // Auto-reset after 30s
+      setTimeout(() => {
+        if (playingRef.current) {
+          azan.stopAzan();
+          setIsPlaying(false);
+          playingRef.current = false;
+        }
+      }, 30000);
+    }
+  };
 
   return (
     <div className="min-h-screen pb-20 bg-background">
@@ -86,12 +116,54 @@ const SettingsPage = () => {
               <span className="flex-1 text-sm font-medium text-foreground">{t("calculationMethod")}</span>
               <span className="text-xs text-muted-foreground">MWL</span>
             </div>
-            <div className="flex items-center gap-3 px-4 py-3.5">
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-border">
               <Bell className="h-5 w-5 text-primary" />
               <span className="flex-1 text-sm font-medium text-foreground">{t("azanNotifications")}</span>
               <span className="text-xs text-muted-foreground mr-2">{azan.enabled ? t("on") : t("off")}</span>
               <Switch checked={azan.enabled} onCheckedChange={azan.toggle} />
             </div>
+
+            {/* Muezzin Voice Selector */}
+            <button
+              onClick={() => setShowMuezzinPicker(!showMuezzinPicker)}
+              className="flex items-center gap-3 px-4 py-3.5 border-b border-border w-full hover:bg-muted/50 transition-colors"
+            >
+              <Volume2 className="h-5 w-5 text-primary" />
+              <span className="flex-1 text-sm font-medium text-foreground text-left">{t("azanSound")}</span>
+              <span className="text-xs text-muted-foreground">{currentMuezzinLabel}</span>
+              <ChevronRight className={cn("h-4 w-4 text-muted-foreground transition-transform", showMuezzinPicker && "rotate-90")} />
+            </button>
+
+            {showMuezzinPicker && (
+              <div className="border-b border-border bg-muted/30 px-4 py-2 space-y-1">
+                {MUEZZIN_OPTIONS.map((m) => (
+                  <button
+                    key={m.value}
+                    onClick={() => { azan.setMuezzin(m.value); setShowMuezzinPicker(false); }}
+                    className={cn(
+                      "w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
+                      azan.muezzin === m.value ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-foreground"
+                    )}
+                  >
+                    {t(m.labelKey as any)}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Test Azan */}
+            <button
+              onClick={handleTestAzan}
+              className="flex items-center gap-3 px-4 py-3.5 w-full hover:bg-muted/50 transition-colors"
+            >
+              {isPlaying ? (
+                <Square className="h-5 w-5 text-destructive" />
+              ) : (
+                <Play className="h-5 w-5 text-primary" />
+              )}
+              <span className="flex-1 text-sm font-medium text-foreground text-left">{t("testAzan")}</span>
+              {isPlaying && <span className="text-xs text-primary animate-pulse">●</span>}
+            </button>
           </div>
         </div>
       </div>
