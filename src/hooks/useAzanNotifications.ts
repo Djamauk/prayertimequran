@@ -19,6 +19,10 @@ export function useAzanNotifications(prayers: PrayerTime[]) {
   const [muezzin, setMuezzinState] = useState<MuezzinVoice>(() => {
     return (localStorage.getItem("azanMuezzin") as MuezzinVoice) || "makkah";
   });
+  const [volume, setVolumeState] = useState(() => {
+    const saved = localStorage.getItem("azanVolume");
+    return saved ? parseFloat(saved) : 0.8;
+  });
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const requestPermission = useCallback(async () => {
