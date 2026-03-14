@@ -145,7 +145,7 @@ const SettingsPage = () => {
                       azan.muezzin === m.value ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-foreground"
                     )}
                   >
-                    {t(m.labelKey)}
+                    {t(m.labelKey as any)}
                   </button>
                 ))}
               </div>
