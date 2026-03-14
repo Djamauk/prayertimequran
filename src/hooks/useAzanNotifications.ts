@@ -4,9 +4,9 @@ import { PrayerTime } from "./usePrayerTimes";
 export type MuezzinVoice = "makkah" | "madinah" | "simple";
 
 const AZAN_URLS: Record<MuezzinVoice, string> = {
-  makkah: "https://cdn.aladhan.com/audio/adhaan/1.mp3",
-  madinah: "https://cdn.aladhan.com/audio/adhaan/2.mp3",
-  simple: "https://cdn.aladhan.com/audio/adhaan/3.mp3",
+  makkah: "/audio/makkah.mp3",
+  madinah: "/audio/madinah.mp3",
+  simple: "/audio/simple.mp3",
 };
 
 export function useAzanNotifications(prayers: PrayerTime[]) {
