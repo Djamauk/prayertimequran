@@ -26,7 +26,7 @@ const SettingsPage = () => {
   const playingRef = useRef(false);
 
   const currentLangName = LANGUAGES.find((l) => l.code === lang)?.nativeName || "English";
-  const currentMuezzinLabel = t(MUEZZIN_OPTIONS.find((m) => m.value === azan.muezzin)?.labelKey || "muezzinMakkah");
+  const currentMuezzinLabel = t((MUEZZIN_OPTIONS.find((m) => m.value === azan.muezzin)?.labelKey || "muezzinMakkah") as any);
 
   const handleTestAzan = () => {
     if (isPlaying) {
