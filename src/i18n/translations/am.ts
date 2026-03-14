@@ -80,6 +80,7 @@ const am = {
   muezzinMadinah: "መዲና",
   muezzinSimple: "ቀላል",
   testAzan: "አዛን ሞክር",
+  volume: "ድምጽ",
   on: "በርቷል",
   off: "ጠፍቷል",
   search: "ፈልግ",

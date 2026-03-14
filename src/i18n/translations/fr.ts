@@ -80,6 +80,7 @@ const fr = {
   muezzinMadinah: "Médine",
   muezzinSimple: "Simple",
   testAzan: "Tester l'Adhan",
+  volume: "Volume",
   on: "Activé",
   off: "Désactivé",
   search: "Rechercher",
